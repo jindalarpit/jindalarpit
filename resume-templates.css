@@ -1,0 +1,738 @@
+/* ============================================
+   Resume Templates
+   5 distinct designs via data-template on <html>
+   "professional" = default (defined in resume.html inline styles)
+   ============================================ */
+
+/* =============================================
+   TEMPLATE: CREATIVE
+   Two-column sidebar layout
+   Left: colored sidebar with name, contact, skills
+   Right: main content with experience, education
+   ============================================= */
+
+[data-template="creative"] .resume-wrapper {
+    max-width: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+[data-template="creative"] .resume {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    padding: 0;
+    gap: 0;
+}
+
+/* Sidebar */
+[data-template="creative"] .r-header {
+    grid-column: 1;
+    grid-row: 1 / 20;
+    background: var(--r-accent);
+    color: #fff;
+    text-align: left;
+    border-bottom: none;
+    padding: 28px 22px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+[data-template="creative"] .r-name {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+[data-template="creative"] .r-title {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 10.5px;
+    font-weight: 500;
+}
+
+[data-template="creative"] .r-contact {
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 9.5px;
+    line-height: 1.5;
+}
+
+[data-template="creative"] .r-contact span {
+    margin: 0;
+}
+
+[data-template="creative"] .r-contact a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+/* Move skills into the sidebar flow */
+[data-template="creative"] .r-skills-section {
+    grid-column: 1;
+    background: var(--r-accent);
+    padding: 0 22px 22px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Main content on the right */
+[data-template="creative"] .r-section {
+    grid-column: 2;
+    padding: 0 28px;
+    margin-top: 20px;
+}
+
+[data-template="creative"] .r-section:first-of-type {
+    padding-top: 28px;
+}
+
+[data-template="creative"] .r-section-title {
+    background: none;
+    color: var(--r-accent);
+    font-size: 12px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 700;
+    padding: 0;
+    border-radius: 0;
+    border-bottom: 2px solid var(--r-accent);
+    padding-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+[data-template="creative"] .r-job {
+    border-left: 3px solid var(--r-accent);
+    border-left-color: rgba(59, 130, 246, 0.3);
+    padding-left: 12px;
+    margin-bottom: 14px;
+}
+
+[data-template="creative"] .r-job-role {
+    font-size: 11.5px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+[data-template="creative"] .r-edu-grid {
+    flex-direction: column;
+    gap: 16px;
+}
+
+[data-template="creative"] .r-skills {
+    font-size: 9.5px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+[data-template="creative"] .r-skills strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+
+/* =============================================
+   TEMPLATE: MINIMAL
+   Ultra-clean, monochrome, maximum whitespace
+   No colors, hairline dividers, elegant simplicity
+   ============================================= */
+
+[data-template="minimal"] .resume-wrapper {
+    max-width: 760px;
+    border: none;
+    box-shadow: none;
+    background: var(--r-surface);
+}
+
+[data-template="minimal"] .resume {
+    padding: 48px 52px;
+}
+
+[data-template="minimal"] .r-header {
+    text-align: left;
+    border-bottom: 1px solid var(--r-border);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+}
+
+[data-template="minimal"] .r-name {
+    font-size: 28px;
+    font-weight: 300;
+    text-transform: none;
+    letter-spacing: 2px;
+    color: var(--r-text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, sans-serif;
+}
+
+[data-template="minimal"] .r-title {
+    font-size: 11px;
+    color: var(--r-text-muted);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+[data-template="minimal"] .r-contact {
+    margin-top: 12px;
+    font-size: 10px;
+    color: var(--r-text-muted);
+    letter-spacing: 0.5px;
+}
+
+[data-template="minimal"] .r-contact a {
+    color: var(--r-text-mid);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--r-text-muted);
+}
+
+[data-template="minimal"] .r-section {
+    margin-top: 24px;
+}
+
+[data-template="minimal"] .r-section-title {
+    background: none;
+    color: var(--r-text);
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 14px;
+    border-bottom: none;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+[data-template="minimal"] .r-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 1px;
+    background: var(--r-text-muted);
+}
+
+[data-template="minimal"] .r-summary {
+    font-size: 10.5px;
+    color: var(--r-text-mid);
+    line-height: 1.6;
+    text-align: left;
+}
+
+[data-template="minimal"] .r-job {
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--r-border);
+}
+
+[data-template="minimal"] .r-job:last-child {
+    border-bottom: none;
+}
+
+[data-template="minimal"] .r-job-role {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+[data-template="minimal"] .r-job-date {
+    color: var(--r-text-muted);
+    font-size: 9.5px;
+    font-weight: 400;
+}
+
+[data-template="minimal"] .r-job-company {
+    color: var(--r-text-mid);
+    font-weight: 400;
+    font-style: italic;
+}
+
+[data-template="minimal"] .r-job-details {
+    list-style: none;
+    margin-left: 0;
+}
+
+[data-template="minimal"] .r-job-details li {
+    padding-left: 12px;
+    position: relative;
+    line-height: 1.55;
+    margin-bottom: 3px;
+}
+
+[data-template="minimal"] .r-job-details li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--r-text-muted);
+    font-size: 9px;
+}
+
+[data-template="minimal"] .r-skills {
+    line-height: 1.7;
+    font-size: 10px;
+}
+
+[data-template="minimal"] .r-skills strong {
+    color: var(--r-text);
+    font-weight: 600;
+}
+
+[data-template="minimal"] .r-edu-degree {
+    font-weight: 500;
+}
+
+[data-template="minimal"] .r-edu-school {
+    color: var(--r-text-muted);
+    font-style: italic;
+}
+
+
+/* =============================================
+   TEMPLATE: ELEGANT
+   Two-column: narrow left (titles) + wide right (content)
+   Serif headings, ornamental dividers, traditional
+   ============================================= */
+
+[data-template="elegant"] .resume-wrapper {
+    max-width: 820px;
+    border-radius: 0;
+    border: 2px solid var(--r-border);
+}
+
+[data-template="elegant"] .resume {
+    padding: 40px 44px;
+    font-family: 'Inter', Georgia, serif;
+}
+
+[data-template="elegant"] .r-header {
+    text-align: center;
+    border-bottom: none;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+[data-template="elegant"] .r-header::after {
+    content: '✦ ✦ ✦';
+    display: block;
+    margin-top: 12px;
+    color: var(--r-accent);
+    font-size: 8px;
+    letter-spacing: 8px;
+    opacity: 0.6;
+}
+
+[data-template="elegant"] .r-name {
+    font-size: 26px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--r-text);
+}
+
+[data-template="elegant"] .r-title {
+    font-size: 11px;
+    font-family: Georgia, serif;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--r-accent);
+    letter-spacing: 1px;
+}
+
+[data-template="elegant"] .r-contact {
+    font-size: 9.5px;
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+}
+
+[data-template="elegant"] .r-contact a {
+    color: var(--r-accent);
+    text-decoration: none;
+}
+
+/* Section: two-column grid layout */
+[data-template="elegant"] .r-section {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 24px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--r-border);
+}
+
+[data-template="elegant"] .r-section-title {
+    grid-column: 1;
+    background: none;
+    color: var(--r-accent);
+    font-size: 9px;
+    font-family: Georgia, serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    padding: 0;
+    border-radius: 0;
+    text-align: right;
+    margin-bottom: 0;
+    padding-top: 2px;
+}
+
+[data-template="elegant"] .r-summary,
+[data-template="elegant"] .r-skills,
+[data-template="elegant"] .r-edu-grid {
+    grid-column: 2;
+}
+
+/* Jobs */
+[data-template="elegant"] .r-job {
+    grid-column: 2;
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+[data-template="elegant"] .r-job-role {
+    font-family: Georgia, serif;
+    font-size: 11.5px;
+    font-weight: 400;
+}
+
+[data-template="elegant"] .r-job-date {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--r-text-muted);
+    font-size: 10px;
+}
+
+[data-template="elegant"] .r-job-company {
+    font-style: italic;
+    color: var(--r-accent);
+    font-weight: 400;
+}
+
+[data-template="elegant"] .r-job-details {
+    list-style: none;
+    margin-left: 0;
+}
+
+[data-template="elegant"] .r-job-details li {
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+    margin-bottom: 2px;
+}
+
+[data-template="elegant"] .r-job-details li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--r-accent);
+    font-size: 5px;
+    top: 5px;
+}
+
+[data-template="elegant"] .r-skills {
+    line-height: 1.6;
+}
+
+[data-template="elegant"] .r-edu-grid {
+    flex-direction: column;
+    gap: 14px;
+}
+
+[data-template="elegant"] .r-edu-degree {
+    font-family: Georgia, serif;
+}
+
+
+/* =============================================
+   TEMPLATE: MODERN
+   Card-based, gradient header, pill tags
+   Rounded everything, vibrant accents
+   ============================================= */
+
+[data-template="modern"] .resume-wrapper {
+    max-width: 840px;
+    border-radius: 20px;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
+
+[data-template="modern"] .resume {
+    padding: 0;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* Gradient header */
+[data-template="modern"] .r-header {
+    background: linear-gradient(135deg, var(--r-accent) 0%, var(--r-accent-light) 100%);
+    color: #fff;
+    text-align: left;
+    padding: 32px 36px;
+    margin: 0;
+    border-bottom: none;
+    border-radius: 0;
+}
+
+[data-template="modern"] .r-name {
+    font-size: 28px;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+[data-template="modern"] .r-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+[data-template="modern"] .r-contact {
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+    font-size: 10px;
+}
+
+[data-template="modern"] .r-contact a {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Content padding */
+[data-template="modern"] .r-section {
+    padding: 0 36px;
+    margin-top: 22px;
+}
+
+[data-template="modern"] .r-section-title {
+    display: inline-block;
+    background: var(--r-accent);
+    color: #fff;
+    font-size: 10px;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 600;
+    padding: 5px 16px;
+    border-radius: 100px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+}
+
+[data-template="modern"] .r-summary {
+    font-size: 10.5px;
+    line-height: 1.55;
+    text-align: left;
+    background: var(--r-bg);
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--r-border);
+}
+
+/* Job cards */
+[data-template="modern"] .r-job {
+    border-left: none;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    background: var(--r-bg);
+    border-radius: 12px;
+    border: 1px solid var(--r-border);
+    transition: all 0.2s ease;
+}
+
+[data-template="modern"] .r-job-role {
+    font-size: 12px;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+[data-template="modern"] .r-job-date {
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--r-accent);
+    padding: 2px 10px;
+    border-radius: 100px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+[data-template="modern"] .r-job-company {
+    font-weight: 600;
+    font-size: 10.5px;
+}
+
+[data-template="modern"] .r-job-details {
+    list-style: none;
+    margin-left: 0;
+}
+
+[data-template="modern"] .r-job-details li {
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 3px;
+    line-height: 1.5;
+}
+
+[data-template="modern"] .r-job-details li::before {
+    content: '▸';
+    position: absolute;
+    left: 4px;
+    color: var(--r-accent);
+    font-size: 10px;
+}
+
+/* Skills as pills */
+[data-template="modern"] .r-skills {
+    line-height: 1.7;
+    font-size: 10px;
+}
+
+[data-template="modern"] .r-skills strong {
+    display: inline-block;
+    background: var(--r-accent);
+    color: #fff;
+    padding: 1px 8px;
+    border-radius: 100px;
+    font-size: 9px;
+    font-weight: 600;
+    margin-right: 2px;
+}
+
+/* Education cards */
+[data-template="modern"] .r-edu-grid {
+    gap: 20px;
+}
+
+[data-template="modern"] .r-edu {
+    background: var(--r-bg);
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--r-border);
+}
+
+[data-template="modern"] .r-edu-degree {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+[data-template="modern"] .r-cert {
+    padding: 4px 0;
+}
+
+/* Bottom padding */
+[data-template="modern"] .r-section:last-child {
+    padding-bottom: 32px;
+}
+
+
+/* =============================================
+   RESPONSIVE: Templates degrade gracefully
+   ============================================= */
+
+@media (max-width: 768px) {
+
+    /* Creative: stack sidebar on top */
+    [data-template="creative"] .resume {
+        grid-template-columns: 1fr;
+    }
+
+    [data-template="creative"] .r-header {
+        grid-row: auto;
+    }
+
+    [data-template="creative"] .r-section {
+        grid-column: 1;
+        padding: 0 20px;
+    }
+
+    [data-template="creative"] .r-skills-section {
+        grid-column: 1;
+    }
+
+    /* Elegant: collapse two-column sections */
+    [data-template="elegant"] .r-section {
+        grid-template-columns: 1fr;
+    }
+
+    [data-template="elegant"] .r-section-title {
+        text-align: left;
+        margin-bottom: 8px;
+    }
+
+    [data-template="elegant"] .r-job {
+        grid-column: 1;
+    }
+
+    [data-template="elegant"] .r-summary,
+    [data-template="elegant"] .r-skills,
+    [data-template="elegant"] .r-edu-grid {
+        grid-column: 1;
+    }
+
+    /* Minimal: reduce padding */
+    [data-template="minimal"] .resume {
+        padding: 32px 24px;
+    }
+
+    /* Modern: reduce padding */
+    [data-template="modern"] .r-header {
+        padding: 24px 20px;
+    }
+
+    [data-template="modern"] .r-section {
+        padding: 0 20px;
+    }
+}
+
+/* =============================================
+   PRINT: All templates print cleanly
+   ============================================= */
+
+@media print {
+    [data-template="creative"] .resume {
+        grid-template-columns: 220px 1fr;
+    }
+
+    [data-template="creative"] .r-header {
+        background: #1e40af !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    [data-template="minimal"] .resume-wrapper {
+        border: none;
+    }
+
+    [data-template="elegant"] .resume-wrapper {
+        border: 1px solid #ccc;
+    }
+
+    [data-template="modern"] .resume-wrapper {
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    [data-template="modern"] .r-header {
+        background: linear-gradient(135deg, #1e40af, #60a5fa) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    [data-template="modern"] .r-job {
+        background: #f9fafb !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

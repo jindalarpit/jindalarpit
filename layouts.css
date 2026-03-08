@@ -1,0 +1,702 @@
+/* ============================================
+   Layout Templates
+   Switch via data-layout attribute on <html>
+   Classic = default (no overrides needed)
+   ============================================ */
+
+/* Layout selector buttons in panel */
+.layout-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+.layout-btn {
+    padding: 8px 6px;
+    border: 1.5px solid var(--border);
+    background: var(--bg-alt);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.layout-btn svg {
+    width: 28px;
+    height: 20px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.layout-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.layout-btn:hover svg {
+    opacity: 0.8;
+}
+
+.layout-btn.active {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.layout-btn.active svg {
+    opacity: 1;
+}
+
+/* =============================================
+   LAYOUT: EXECUTIVE
+   Fixed left sidebar + scrollable right content
+   ============================================= */
+
+[data-layout="executive"] body {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: 1fr;
+    min-height: 100vh;
+}
+
+[data-layout="executive"] .nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    z-index: 100;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    overflow-y: auto;
+    padding: 0;
+    transition: var(--theme-transition);
+}
+
+[data-layout="executive"] .nav.scrolled {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    border-bottom: none;
+}
+
+[data-layout="executive"] .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 24px;
+    gap: 32px;
+    max-width: none;
+}
+
+[data-layout="executive"] .nav-logo {
+    font-size: 1.3rem;
+}
+
+[data-layout="executive"] .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+[data-layout="executive"] .nav-links li a {
+    display: block;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+[data-layout="executive"] .nav-links li a:hover {
+    background: var(--accent-light);
+    color: var(--accent);
+}
+
+[data-layout="executive"] .nav-toggle {
+    display: none !important;
+}
+
+/* Push all content right */
+[data-layout="executive"] .hero,
+[data-layout="executive"] .section,
+[data-layout="executive"] .section-alt,
+[data-layout="executive"] .footer {
+    margin-left: 280px;
+}
+
+[data-layout="executive"] .hero {
+    min-height: auto;
+    padding: 80px 0 60px;
+}
+
+[data-layout="executive"] .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+[data-layout="executive"] .hero-visual {
+    max-width: 400px;
+}
+
+[data-layout="executive"] .hero-name {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+}
+
+/* Container narrower since sidebar takes space */
+[data-layout="executive"] .container {
+    max-width: 900px;
+}
+
+/* About — single column */
+[data-layout="executive"] .about-grid {
+    grid-template-columns: 1fr;
+}
+
+[data-layout="executive"] .about-cards {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Experience — compact */
+[data-layout="executive"] .timeline {
+    padding-left: 24px;
+}
+
+/* Expertise — 2 columns */
+[data-layout="executive"] .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Architecture — single column */
+[data-layout="executive"] .arch-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Grain stretches full */
+[data-layout="executive"] .grain {
+    left: 280px;
+}
+
+/* Hero bg orbs adjusted */
+[data-layout="executive"] .hero-bg {
+    left: 280px;
+}
+
+
+/* =============================================
+   LAYOUT: BENTO
+   Compact header, masonry-style card grid
+   ============================================= */
+
+[data-layout="bento"] .hero {
+    min-height: auto;
+    padding: 100px 0 40px;
+}
+
+[data-layout="bento"] .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 24px;
+}
+
+[data-layout="bento"] .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+[data-layout="bento"] .hero-visual {
+    display: none;
+}
+
+[data-layout="bento"] .hero-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+[data-layout="bento"] .hero-chips {
+    justify-content: center;
+}
+
+[data-layout="bento"] .hero-actions {
+    justify-content: center;
+}
+
+[data-layout="bento"] .hero-desc {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* All sections become cards in a grid */
+[data-layout="bento"] .section,
+[data-layout="bento"] .section-alt {
+    padding: 0;
+    background: none;
+}
+
+[data-layout="bento"] .hero~.section,
+[data-layout="bento"] .hero~.section-alt {
+    padding: 0;
+}
+
+/* Bento wrapper grid */
+[data-layout="bento"] #main-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px 0 60px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+[data-layout="bento"] #main-content>.section,
+[data-layout="bento"] #main-content>.section-alt {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: var(--theme-transition), transform 0.3s ease;
+    overflow: hidden;
+}
+
+[data-layout="bento"] #main-content>.section:hover,
+[data-layout="bento"] #main-content>.section-alt:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* About spans full width */
+[data-layout="bento"] #about {
+    grid-column: 1 / -1;
+}
+
+/* Impact spans full width */
+[data-layout="bento"] #impact {
+    grid-column: 1 / -1;
+}
+
+[data-layout="bento"] .container {
+    max-width: none;
+    padding: 0;
+}
+
+[data-layout="bento"] .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+}
+
+[data-layout="bento"] .section-lead {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+}
+
+[data-layout="bento"] .about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+[data-layout="bento"] .about-cards {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+[data-layout="bento"] .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+[data-layout="bento"] .exp-card {
+    padding: 16px;
+}
+
+[data-layout="bento"] .arch-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+[data-layout="bento"] .impact-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+[data-layout="bento"] .edu-grid {
+    gap: 24px;
+}
+
+[data-layout="bento"] .timeline {
+    padding-left: 24px;
+}
+
+[data-layout="bento"] .footer {
+    padding: 24px 0;
+}
+
+
+/* =============================================
+   LAYOUT: TIMELINE
+   Centered timeline spine, alternating content
+   ============================================= */
+
+[data-layout="timeline-centered"] .hero {
+    min-height: auto;
+    padding: 100px 0 40px;
+    text-align: center;
+}
+
+[data-layout="timeline-centered"] .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+[data-layout="timeline-centered"] .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+[data-layout="timeline-centered"] .hero-visual {
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+[data-layout="timeline-centered"] .hero-chips {
+    justify-content: center;
+}
+
+[data-layout="timeline-centered"] .hero-actions {
+    justify-content: center;
+}
+
+[data-layout="timeline-centered"] .hero-name {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+}
+
+/* Central spine */
+[data-layout="timeline-centered"] #main-content {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+[data-layout="timeline-centered"] #main-content::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+/* Each section becomes a card that alternates sides */
+[data-layout="timeline-centered"] .section,
+[data-layout="timeline-centered"] .section-alt {
+    position: relative;
+    width: 46%;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 40px;
+    transition: var(--theme-transition);
+}
+
+/* Alternate left/right with nth-child */
+[data-layout="timeline-centered"] #main-content>.section:nth-child(odd),
+[data-layout="timeline-centered"] #main-content>.section-alt:nth-child(odd) {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+[data-layout="timeline-centered"] #main-content>.section:nth-child(even),
+[data-layout="timeline-centered"] #main-content>.section-alt:nth-child(even) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Dot on the spine for each section */
+[data-layout="timeline-centered"] #main-content>.section::before,
+[data-layout="timeline-centered"] #main-content>.section-alt::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--bg);
+    z-index: 1;
+    box-shadow: 0 0 0 3px var(--accent-light);
+}
+
+/* Dot position: left-side card → dot on right */
+[data-layout="timeline-centered"] #main-content>.section:nth-child(odd)::before,
+[data-layout="timeline-centered"] #main-content>.section-alt:nth-child(odd)::before {
+    right: -8%;
+    left: auto;
+}
+
+/* Right-side card → dot on left */
+[data-layout="timeline-centered"] #main-content>.section:nth-child(even)::before,
+[data-layout="timeline-centered"] #main-content>.section-alt:nth-child(even)::before {
+    left: -8%;
+    right: auto;
+}
+
+[data-layout="timeline-centered"] .container {
+    max-width: none;
+    padding: 0;
+}
+
+[data-layout="timeline-centered"] .section-title {
+    font-size: 1.3rem;
+}
+
+[data-layout="timeline-centered"] .about-grid {
+    grid-template-columns: 1fr;
+}
+
+[data-layout="timeline-centered"] .about-cards {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+[data-layout="timeline-centered"] .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+[data-layout="timeline-centered"] .arch-grid {
+    grid-template-columns: 1fr;
+}
+
+[data-layout="timeline-centered"] .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+[data-layout="timeline-centered"] .edu-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+[data-layout="timeline-centered"] .timeline {
+    padding-left: 20px;
+}
+
+[data-layout="timeline-centered"] .footer {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+
+/* =============================================
+   LAYOUT: MAGAZINE
+   Two-column newspaper / editorial style
+   ============================================= */
+
+[data-layout="magazine"] .hero {
+    min-height: auto;
+    padding: 100px 0 40px;
+}
+
+[data-layout="magazine"] .hero-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+[data-layout="magazine"] .hero-name {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* Main content becomes two columns */
+[data-layout="magazine"] #main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    column-count: 2;
+    column-gap: 40px;
+    column-rule: 1px solid var(--border);
+}
+
+/* Each section is a break-inside block */
+[data-layout="magazine"] .section,
+[data-layout="magazine"] .section-alt {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    padding: 32px 0;
+    background: none;
+}
+
+[data-layout="magazine"] .section-alt {
+    background: none;
+}
+
+/* Some sections should span full width */
+[data-layout="magazine"] #impact {
+    column-span: all;
+    background: var(--bg-alt);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    margin: 20px 0;
+}
+
+[data-layout="magazine"] #contact {
+    column-span: all;
+    text-align: center;
+    padding: 40px 0;
+}
+
+[data-layout="magazine"] .container {
+    max-width: none;
+    padding: 0;
+}
+
+[data-layout="magazine"] .about-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+[data-layout="magazine"] .about-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+[data-layout="magazine"] .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+[data-layout="magazine"] .arch-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+[data-layout="magazine"] .impact-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+[data-layout="magazine"] .edu-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+[data-layout="magazine"] .timeline {
+    padding-left: 20px;
+}
+
+[data-layout="magazine"] .section-title {
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+[data-layout="magazine"] .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 40px;
+}
+
+
+/* =============================================
+   RESPONSIVE: All layouts degrade gracefully
+   ============================================= */
+
+@media (max-width: 1024px) {
+
+    /* Executive → collapse sidebar */
+    [data-layout="executive"] body {
+        grid-template-columns: 1fr;
+    }
+
+    [data-layout="executive"] .nav {
+        position: fixed;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    [data-layout="executive"] .nav-inner {
+        flex-direction: row;
+        padding: 12px 20px;
+        align-items: center;
+    }
+
+    [data-layout="executive"] .nav-links {
+        display: none !important;
+    }
+
+    [data-layout="executive"] .nav-toggle {
+        display: flex !important;
+    }
+
+    [data-layout="executive"] .hero,
+    [data-layout="executive"] .section,
+    [data-layout="executive"] .section-alt,
+    [data-layout="executive"] .footer,
+    [data-layout="executive"] .grain,
+    [data-layout="executive"] .hero-bg {
+        margin-left: 0;
+        left: 0;
+    }
+
+    /* Bento → single column */
+    [data-layout="bento"] #main-content {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    /* Timeline → no alternation */
+    [data-layout="timeline-centered"] .section,
+    [data-layout="timeline-centered"] .section-alt {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    [data-layout="timeline-centered"] #main-content::before {
+        left: 20px;
+    }
+
+    [data-layout="timeline-centered"] #main-content>.section::before,
+    [data-layout="timeline-centered"] #main-content>.section-alt::before {
+        left: 13px !important;
+        right: auto !important;
+    }
+
+    /* Magazine → single column */
+    [data-layout="magazine"] #main-content {
+        column-count: 1;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    [data-layout="bento"] .about-cards,
+    [data-layout="bento"] .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    [data-layout="timeline-centered"] .about-cards,
+    [data-layout="timeline-centered"] .impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    [data-layout="magazine"] .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    [data-layout="executive"] .about-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
